@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euxo pipefail
+
+# check
+echo "Checking the solution of the challenge"
+if [ ! -f /root/conjur/admin.out ]; then
+  fail-message "Your challenge failed because you did not create a demo account in the Conjur service"
+fi

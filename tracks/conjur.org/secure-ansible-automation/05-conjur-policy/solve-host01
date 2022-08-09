@@ -1,0 +1,44 @@
+#!/bin/bash
+
+cat >> /root/conjur/conjur.yml <<EOF
+- !policy
+  id: server
+
+- !policy
+  id: ansible
+EOF
+
+cat >> /root/conjur/server.yml <<EOF
+- &variables
+  - !variable host01/host
+  - !variable host01/user
+  - !variable host01/pass
+  - !variable host02/host
+  - !variable host02/user
+  - !variable host02/pass
+
+- !group secrets-users
+
+- !permit
+  resource: *variables
+  privileges: [ read, execute ]
+  roles: !group secrets-users
+
+# Entitlements
+- !grant
+  role: !group secrets-users
+  member: !layer /ansible
+EOF
+
+cat >> /root/conjur/ansible.yml <<EOF
+- !layer
+
+- !host ansible-01
+
+- !grant
+  role: !layer
+  member: !host ansible-01
+
+- !host-factory
+  layers: [ !layer ]
+EOF

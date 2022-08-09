@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export COMPOSE_INTERACTIVE_NO_CLI=1
+
+docker cp conjur/conjur.yml root_client_1:/tmp/
+docker-compose exec -T client conjur policy load --replace root /tmp/conjur.yml
+
+docker cp conjur/ansible.yml root_client_1:/tmp/
+docker-compose exec -T client conjur policy load ansible /tmp/ansible.yml  > conjur/ansible.out
+
+docker cp conjur/server.yml root_client_1:/tmp/
+docker-compose exec -T client conjur policy load server /tmp/server.yml
