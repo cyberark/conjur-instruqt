@@ -1,28 +1,25 @@
 Manifest-Version: 1.0
-Hudson-Version: 2.303.3
-Plugin-Dependencies: workflow-api:1108.v57edf648f5d4,workflow-step-api
- :622.vb_8e7c15b_c95a_,workflow-support:804.vba10a18a1476,durable-task
- :493.v195aefbb0ff2,scm-api:2.6.5,script-security:1118.vba21ca2e3286,s
- tructs:308.v852b473a2b8c
-Implementation-Title: workflow-durable-task-step
-Long-Name: Pipeline: Nodes and Processes
-Implementation-Version: 1121.va_65b_d2701486
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
+Specification-Title: Pipeline: Nodes and Processes
+Specification-Version: 0.0
+Implementation-Title: Pipeline: Nodes and Processes
+Implementation-Version: 1206.v8a_d5f86e336b
 Group-Id: org.jenkins-ci.plugins.workflow
-Minimum-Java-Version: 1.8
-Plugin-License-Name: MIT License
-Specification-Title: Pipeline steps locking agents and workspaces, and
-  running external processes that may survive a Jenkins restart or age
- nt reconnection.
-Plugin-ScmUrl: https://github.com/jenkinsci/workflow-durable-task-step
- -plugin
-Plugin-Version: 1121.va_65b_d2701486
-Jenkins-Version: 2.303.3
-Url: https://github.com/jenkinsci/workflow-durable-task-step-plugin
 Short-Name: workflow-durable-task-step
-Plugin-License-Url: https://opensource.org/licenses/MIT
+Long-Name: Pipeline: Nodes and Processes
+Url: https://github.com/jenkinsci/workflow-durable-task-step-plugin
 Compatible-Since-Version: 2.40
+Plugin-Version: 1206.v8a_d5f86e336b
+Hudson-Version: 2.346.1
+Jenkins-Version: 2.346.1
+Plugin-Dependencies: workflow-api:1200.v8005c684b_a_c6,workflow-step-api
+ :639.v6eca_cd8c04a_a_,workflow-support:838.va_3a_087b_4055b,durable-tas
+ k:500.v8927d9fd99d8,scm-api:621.vda_a_b_055e58f7,script-security:1175.v
+ 4b_d517d6db_f0,structs:324.va_f5d6774f3a_d
 Plugin-Developers: 
-Extension-Name: workflow-durable-task-step
-Build-Jdk-Spec: 1.8
-Created-By: Maven Archiver 3.5.1
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/workflow-durable-task-step-p
+ lugin
 
