@@ -27,7 +27,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins.workflow</groupId>
   <artifactId>workflow-cps</artifactId>
-  <version>2648.va9433432b33c</version>
+  <version>2803.v1a_f77ffcc773</version>
   <packaging>hpi</packaging>
   <name>Pipeline: Groovy</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -40,9 +40,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/workflow-cps-plugin.git</connection>
+    <connection>scm:git:https://github.com/jenkinsci/workflow-cps-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/workflow-cps-plugin.git</developerConnection>
-    <tag>a9433432b33c65f58d9e7b4dc4aa83249672eaf7</tag>
+    <tag>1af77ffcc773ffac4eb49956168b9778dca9a3b6</tag>
     <url>https://github.com/jenkinsci/workflow-cps-plugin</url>
   </scm>
   <distributionManagement>
@@ -59,49 +59,55 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-      <version>2.23</version>
+      <version>639.v6eca_cd8c04a_a_</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>ionicons-api</artifactId>
+      <version>19.v744f3b_2b_b_e4e</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-api</artifactId>
-      <version>2.46</version>
+      <version>1192.v2d0deb_19d212</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-support</artifactId>
-      <version>3.8</version>
+      <version>838.va_3a_087b_4055b</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-scm-step</artifactId>
-      <version>2.13</version>
+      <version>400.v6b_89a_1317c9a_</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>script-security</artifactId>
-      <version>1.77</version>
+      <version>1184.v85d16b_d851b_3</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>scm-api</artifactId>
-      <version>2.6.4</version>
+      <version>621.vda_a_b_055e58f7</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>structs</artifactId>
-      <version>1.23</version>
+      <version>324.va_f5d6774f3a_d</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>support-core</artifactId>
-      <version>2.43</version>
+      <version>1206.v14049fa_b_d860</version>
       <scope>compile</scope>
       <exclusions>
         <exclusion>
@@ -114,7 +120,7 @@
     <dependency>
       <groupId>com.cloudbees</groupId>
       <artifactId>groovy-cps</artifactId>
-      <version>1.32</version>
+      <version>1.34</version>
       <scope>compile</scope>
       <exclusions>
         <exclusion>
@@ -154,21 +160,20 @@
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
-      <version>2.222.4</version>
+      <version>2.346.1</version>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-annotations</artifactId>
-      <version>4.4.2</version>
-      <scope>provided</scope>
-      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>net.jcip</groupId>
@@ -180,7 +185,7 @@
     <dependency>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.20</version>
+      <version>1.22</version>
       <scope>provided</scope>
       <optional>true</optional>
     </dependency>
@@ -189,18 +194,6 @@
       <artifactId>commons-logging</artifactId>
       <version>1.2</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.kohsuke</groupId>
-      <artifactId>access-modifier-annotation</artifactId>
-      <version>1.25</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jenkins-ci</groupId>
-          <artifactId>annotation-indexer</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
   <repositories>
@@ -214,13 +207,13 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.20</version>
+        <version>3.34</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>
         <groupId>org.kohsuke.stapler</groupId>
         <artifactId>maven-stapler-plugin</artifactId>
-        <version>1.17</version>
+        <version>1.19</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

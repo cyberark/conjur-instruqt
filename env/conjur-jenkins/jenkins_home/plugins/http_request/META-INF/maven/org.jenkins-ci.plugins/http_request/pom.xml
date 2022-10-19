@@ -27,7 +27,7 @@ THE SOFTWARE.
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>http_request</artifactId>
-  <version>1.13</version>
+  <version>1.16</version>
   <packaging>hpi</packaging>
   <name>HTTP Request Plugin</name>
   <description>This plugin sends a http request to an url with some parameters.</description>
@@ -53,9 +53,9 @@ THE SOFTWARE.
     </contributor>
   </contributors>
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/http-request-plugin.git</connection>
+    <connection>scm:git:https://github.com/jenkinsci/http-request-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/http-request-plugin.git</developerConnection>
-    <tag>http_request-1.13</tag>
+    <tag>http_request-1.16</tag>
     <url>https://github.com/jenkinsci/http-request-plugin</url>
   </scm>
   <distributionManagement>
@@ -134,7 +134,7 @@ THE SOFTWARE.
     <dependency>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.20</version>
+      <version>1.21</version>
       <scope>provided</scope>
       <optional>true</optional>
     </dependency>
@@ -156,7 +156,7 @@ THE SOFTWARE.
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.22</version>
+        <version>3.32</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>pipeline-graph-analysis</artifactId>
-  <version>188.v3a01e7973f2c</version>
+  <version>195.v5812d95a_a_2f9</version>
   <packaging>hpi</packaging>
   <name>Pipeline Graph Analysis Plugin</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -18,9 +18,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/pipeline-graph-analysis-plugin.git</connection>
+    <connection>scm:git:https://github.com/jenkinsci/pipeline-graph-analysis-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/pipeline-graph-analysis-plugin.git</developerConnection>
-    <tag>3a01e7973f2c478753ecc0cab74906efb3850199</tag>
+    <tag>5812d95aa2f921dee2c7e6b9a44b31215c0452be</tag>
     <url>https://github.com/jenkinsci/pipeline-graph-analysis-plugin</url>
   </scm>
   <distributionManagement>
@@ -43,37 +43,37 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-api</artifactId>
-      <version>1105.v3de5e2efac97</version>
+      <version>1143.v2d42f1e9dea_5</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>pipeline-input-step</artifactId>
-      <version>427.va6441fa17010</version>
+      <version>447.v95e5a_6e3502a_</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-      <version>615.vb09dac339255</version>
+      <version>622.vb_8e7c15b_c95a_</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-cps</artifactId>
-      <version>2.94</version>
+      <version>2660.vb_c0412dc4e6d</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>pipeline-stage-step</artifactId>
-      <version>2.5</version>
+      <version>291.vf0a8a7aeeb50</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-support</artifactId>
-      <version>3.8</version>
+      <version>813.vb_d7c3d2984a_0</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -81,19 +81,18 @@
       <artifactId>jenkins-core</artifactId>
       <version>2.303.3</version>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-annotations</artifactId>
-      <version>4.4.2</version>
-      <scope>provided</scope>
-      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>net.jcip</groupId>
@@ -105,7 +104,7 @@
     <dependency>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.20</version>
+      <version>1.21</version>
       <scope>provided</scope>
       <optional>true</optional>
     </dependency>
@@ -114,18 +113,6 @@
       <artifactId>commons-logging</artifactId>
       <version>1.2</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.kohsuke</groupId>
-      <artifactId>access-modifier-annotation</artifactId>
-      <version>1.25</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jenkins-ci</groupId>
-          <artifactId>annotation-indexer</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
   <repositories>
@@ -139,7 +126,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.20</version>
+        <version>3.27</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>

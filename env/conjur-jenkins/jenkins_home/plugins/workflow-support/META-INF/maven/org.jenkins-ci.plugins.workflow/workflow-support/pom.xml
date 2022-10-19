@@ -27,7 +27,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins.workflow</groupId>
   <artifactId>workflow-support</artifactId>
-  <version>813.vb_d7c3d2984a_0</version>
+  <version>839.v35e2736cfd5c</version>
   <packaging>hpi</packaging>
   <name>Pipeline: Supporting APIs</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -40,9 +40,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/workflow-support-plugin.git</connection>
+    <connection>scm:git:https://github.com/jenkinsci/workflow-support-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/workflow-support-plugin.git</developerConnection>
-    <tag>bd7c3d2984a0cb948776482e9d389b09cc06f50a</tag>
+    <tag>35e2736cfd5c56799eece176328906d92b6a0dd1</tag>
     <url>https://github.com/jenkinsci/workflow-support-plugin</url>
   </scm>
   <distributionManagement>
@@ -59,37 +59,43 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-      <version>622.vb_8e7c15b_c95a_</version>
+      <version>625.vd896b_f445a_f8</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-api</artifactId>
-      <version>1108.v57edf648f5d4</version>
+      <version>1164.v760c223ddb_32</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>scm-api</artifactId>
-      <version>2.6.5</version>
+      <version>608.vfa_f971c5a_a_e9</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>script-security</artifactId>
-      <version>1118.vba21ca2e3286</version>
+      <version>1175.v4b_d517d6db_f0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>caffeine-api</artifactId>
+      <version>2.9.3-65.v6a_47d0f4d1fe</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jboss.marshalling</groupId>
       <artifactId>jboss-marshalling-river</artifactId>
-      <version>2.0.12.Final</version>
+      <version>2.1.0.Final</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
-      <version>2.289.1</version>
+      <version>2.332.1</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -114,7 +120,7 @@
     <dependency>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.20</version>
+      <version>1.21</version>
       <scope>provided</scope>
       <optional>true</optional>
     </dependency>
@@ -136,7 +142,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.22</version>
+        <version>3.32</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>
