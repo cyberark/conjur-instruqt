@@ -4,10 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.modules</groupId>
   <artifactId>sshd</artifactId>
-  <version>3.249.v2dc2ea_416e33</version>
+  <version>3.275.v9e17c10f2571</version>
   <packaging>hpi</packaging>
   <name>SSH server</name>
-  <description>Adds SSH server functionality to Jenkins, exposing CLI commands through it</description>
+  <description>The Jenkins Plugins Parent POM Project</description>
+  <url>https://github.com/jenkinsci/sshd-plugin</url>
   <inceptionYear>2016</inceptionYear>
   <licenses>
     <license>
@@ -18,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/sshd-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/sshd-plugin.git</developerConnection>
-    <tag>2dc2ea416e3300ad210e3943b471204d562e6d18</tag>
+    <tag>9e17c10f25711f9dd4a6593e3c7fb1751530876f</tag>
     <url>https://github.com/jenkinsci/sshd-plugin</url>
   </scm>
   <distributionManagement>
@@ -35,7 +36,7 @@
     <dependency>
       <groupId>io.jenkins.plugins.mina-sshd-api</groupId>
       <artifactId>mina-sshd-api-core</artifactId>
-      <version>2.8.0-36.v8e25ce90d4b_1</version>
+      <version>2.9.2-50.va_0e1f42659a_a</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -47,13 +48,13 @@
     <dependency>
       <groupId>org.jenkins-ci.modules</groupId>
       <artifactId>instance-identity</artifactId>
-      <version>116.vf8f487400980</version>
+      <version>142.v04572ca_5b_265</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
-      <version>2.357</version>
+      <version>2.361.4</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -67,20 +68,6 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.jcip</groupId>
-      <artifactId>jcip-annotations</artifactId>
-      <version>1.0</version>
-      <scope>provided</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.mojo</groupId>
-      <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.21</version>
-      <scope>provided</scope>
-      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>commons-logging</groupId>
@@ -100,13 +87,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.29</version>
-        <extensions>true</extensions>
-      </plugin>
-      <plugin>
-        <groupId>org.kohsuke.stapler</groupId>
-        <artifactId>maven-stapler-plugin</artifactId>
-        <version>1.17</version>
+        <version>3.38</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

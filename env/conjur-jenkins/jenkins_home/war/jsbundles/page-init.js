@@ -5,9 +5,10 @@
 /***/ 9383:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7601);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4655);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jenkins_js_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(563);
+
 
 
 /*
@@ -18,11 +19,9 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
   loadScripts();
   loadCSS();
 });
-
 function loadScripts() {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(".jenkins-js-load").each(function () {
     var scriptUrl = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr("data-src");
-
     if (scriptUrl) {
       // jsModules.addScript will ensure that the script is
       // loaded once and once only. So, this can be considered
@@ -32,11 +31,9 @@ function loadScripts() {
     }
   });
 }
-
 function loadCSS() {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(".jenkins-css-load").each(function () {
     var cssUrl = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr("data-src");
-
     if (cssUrl) {
       // jsModules.addCSSToPage will ensure that the CSS is
       // loaded once and once only. So, this can be considered
