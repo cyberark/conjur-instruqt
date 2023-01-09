@@ -16,12 +16,13 @@
  * corresponds to the sortable.js file that deals with table sorting.
  */
 
+
 sortablejs_modular_sortable_core_esm_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"].mount */ .ZP.mount(new sortablejs_modular_sortable_core_esm_js__WEBPACK_IMPORTED_MODULE_0__/* .AutoScroll */ .lK());
-
 function registerSortableDragDrop(e) {
-  if (!e || !e.classList.contains("with-drag-drop")) return false; // eslint-disable-next-line no-unused-vars
-
-  const sortableElement = new sortablejs_modular_sortable_core_esm_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .ZP(e, {
+  if (!e || !e.classList.contains("with-drag-drop")) {
+    return false;
+  }
+  new sortablejs_modular_sortable_core_esm_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .ZP(e, {
     draggable: ".repeated-chunk",
     handle: ".dd-handle",
     ghostClass: "repeated-chunk--sortable-ghost",
@@ -33,19 +34,18 @@ function registerSortableDragDrop(e) {
     onChoose: function (event) {
       const draggableDiv = event.item;
       const height = draggableDiv.clientHeight;
-      draggableDiv.style.height = "".concat(height, "px");
+      draggableDiv.style.height = `${height}px`;
     },
     onUnchoose: function (event) {
       event.item.style.removeProperty("height");
     }
   });
 }
+
 /*
  * Expose the function to register drag & drop components to the window objects
  * so that other widgets can use it (repeatable, hetero-list)
  */
-
-
 window.registerSortableDragDrop = registerSortableDragDrop;
 
 /***/ })
