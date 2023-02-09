@@ -33,7 +33,7 @@ exit
 3. Load the policy into Conjur under root:
 
 ```
-docker exec conjur-cli conjur policy load --replace root /conjur.yml
+docker exec conjur-cli conjur policy replace -b root -f /conjur.yml
 ```
 
 4. Declare the layer and Jenkins host in another file. Copy the following policy as a template & save it.
@@ -62,7 +62,7 @@ Change the following items:
 5. Load the policy into Conjur under the Jenkins policy branch you declared previously:
 
 ```
-docker exec conjur-cli conjur policy load jenkins-frontend /jenkins-frontend.yml | tee frontend.out
+docker exec conjur-cli conjur policy load -b jenkins-frontend -f /jenkins-frontend.yml | tee frontend.out
 ```
 
 As it creates each new host, Conjur returns an API key.
@@ -97,6 +97,6 @@ exit
 9. Load the policy into Conjur:
 
 ```
-docker exec conjur-cli conjur policy load root /conjur2.yml
+docker exec conjur-cli conjur policy load -b root -f /conjur2.yml
 ```
 

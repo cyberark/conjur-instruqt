@@ -40,7 +40,7 @@ api_key="$(grep API conjur/admin.out | cut -d: -f2 | tr -d ' \r\n')"
 Next, we need to give the Conjur CLI the command to authenticate as "admin":
 
 ```
-docker-compose exec client conjur authn login -u admin -p "$api_key"
+docker-compose exec client conjur login -i admin -p "$api_key"
 ```
 
 **PRODUCTION NOTICE**

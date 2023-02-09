@@ -65,7 +65,7 @@ docker exec conjur-cli conjur init -u conjur -a quick-start
 To login to Conjur,execute:
 ```
 export admin_api_key="$(cat admin_key|awk '/API key for admin/ {print $NF}'|tr '  \n\r' ' '|awk '{$1=$1};1')"
-docker exec conjur-cli conjur authn login -u admin -p $admin_api_key
+docker exec conjur-cli conjur login -i admin -p $admin_api_key
 ```
 
 It should display `Logged in` once you are successfully logged in

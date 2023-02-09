@@ -53,7 +53,7 @@ Change the variable names, the group name, and the layer name as appropriate.
 2. Load the policy into Conjur under the Jenkins policy branch you declared previously:
 
 ```
-docker exec conjur-cli conjur policy load jenkins-app /jenkins-app.yml
+docker exec conjur-cli conjur policy load -b jenkins-app -f /jenkins-app.yml
 ```
 
 
@@ -63,11 +63,11 @@ Use the Conjur CLI to set variable values.
 
 The CLI command to set a value is:
 
-`conjur variable values add <policy-path-of-variable-name> <secret-value>`
+`conjur variable set -i <policy-path-of-variable-name> -v <secret-value>`
 
 For example:
 
 ```
-docker exec conjur-cli conjur variable values add jenkins-app/web_password NotSoSecureSecret
+docker exec conjur-cli conjur variable set -i jenkins-app/web_password -v NotSoSecureSecret
 ```
 

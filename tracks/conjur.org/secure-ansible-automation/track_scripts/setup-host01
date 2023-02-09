@@ -18,7 +18,33 @@ echo "=== [FINISH] Export env vars to /root/.bashrc ==="
 
 # Conjur
 echo "=== [START] Conjur initial setup ==="
-curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.quickstart.yml
+cat <<EOF > docker-compose.yml
+version: '3'
+services:
+  database:
+    image: postgres:9.3
+
+  conjur:
+    image: cyberark/conjur
+    command: server
+    environment:
+      DATABASE_URL: postgres://postgres@database/postgres
+      CONJUR_DATA_KEY:
+    depends_on: [ database ]
+    ports:
+      - "8080:80"
+
+  client:
+    image: cyberark/conjur-cli:8
+    depends_on: [ conjur ]
+    entrypoint: sleep
+    command: infinity
+    environment:
+      CONJUR_APPLIANCE_URL: http://conjur
+      CONJUR_ACCOUNT:
+      CONJUR_AUTHN_API_KEY:
+      CONJUR_AUTHN_LOGIN: admin
+EOF
 docker-compose pull
 docker-compose run --no-deps --rm conjur data-key generate > data_key
 generated_data_key="$(<data_key)"

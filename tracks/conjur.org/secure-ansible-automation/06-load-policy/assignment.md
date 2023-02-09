@@ -21,19 +21,19 @@ Now, let's copy the policy files to Docker-based Conjur CLI container and load t
 
 ```
 docker cp conjur/conjur.yml root_client_1:/tmp/
-docker-compose exec client conjur policy load --replace root /tmp/conjur.yml
+docker-compose exec client conjur policy replace -b root -f /tmp/conjur.yml
 ```
 
 **Load Ansible Policy**
 
 ```
 docker cp conjur/ansible.yml root_client_1:/tmp/
-docker-compose exec client conjur policy load ansible /tmp/ansible.yml  | tee conjur/ansible.out
+docker-compose exec client conjur policy load -b ansible -f /tmp/ansible.yml  | tee conjur/ansible.out
 ```
 
 **Load Server Policy**
 
 ```
 docker cp conjur/server.yml root_client_1:/tmp/
-docker-compose exec client conjur policy load server /tmp/server.yml
+docker-compose exec client conjur policy load -b server -f /tmp/server.yml
 ```
