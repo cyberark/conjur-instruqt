@@ -2,8 +2,9 @@
 <hudson>
   <disabledAdministrativeMonitors>
     <string>jenkins.diagnostics.ControllerExecutorsNoAgents</string>
+    <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>2.375.1</version>
+  <version>2.375.3</version>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>

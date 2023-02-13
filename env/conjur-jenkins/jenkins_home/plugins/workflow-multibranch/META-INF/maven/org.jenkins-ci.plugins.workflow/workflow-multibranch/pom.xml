@@ -27,10 +27,10 @@ THE SOFTWARE.
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins.workflow</groupId>
   <artifactId>workflow-multibranch</artifactId>
-  <version>716.vc692a_e52371b_</version>
+  <version>733.v109046189126</version>
   <packaging>hpi</packaging>
   <name>Pipeline: Multibranch</name>
-  <description>Enhances Pipeline plugin to handle branches better by automatically grouping builds from different branches</description>
+  <description>The Jenkins Plugins Parent POM Project</description>
   <url>https://github.com/jenkinsci/workflow-multibranch-plugin</url>
   <inceptionYear>2016</inceptionYear>
   <licenses>
@@ -42,7 +42,7 @@ THE SOFTWARE.
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/workflow-multibranch-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/workflow-multibranch-plugin.git</developerConnection>
-    <tag>c692ae52371b564c718e993db922dd3aeaa1b441</tag>
+    <tag>1090461891268dbc315373249c0caef71ec510dd</tag>
     <url>https://github.com/jenkinsci/workflow-multibranch-plugin</url>
   </scm>
   <distributionManagement>
@@ -59,67 +59,67 @@ THE SOFTWARE.
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-      <version>622.vb_8e7c15b_c95a_</version>
+      <version>639.v6eca_cd8c04a_a_</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-job</artifactId>
-      <version>1145.v7f2433caa07f</version>
+      <version>1254.v3f64639b_11dd</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-support</artifactId>
-      <version>813.vb_d7c3d2984a_0</version>
+      <version>839.v35e2736cfd5c</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-cps</artifactId>
-      <version>2660.vb_c0412dc4e6d</version>
+      <version>3565.v4b_d9b_8c29a_b_3</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>scm-api</artifactId>
-      <version>602.v6a_81757a_31d2</version>
+      <version>621.vda_a_b_055e58f7</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>branch-api</artifactId>
-      <version>2.1044.v2c007e51b_87f</version>
+      <version>2.1051.v9985666b_f6cc</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>cloudbees-folder</artifactId>
-      <version>6.714.v79e858ef76a_2</version>
+      <version>6.758.vfd75d09eea_a_1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-api</artifactId>
-      <version>1143.v2d42f1e9dea_5</version>
+      <version>1200.v8005c684b_a_c6</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-scm-step</artifactId>
-      <version>2.13</version>
+      <version>400.v6b_89a_1317c9a_</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>script-security</artifactId>
-      <version>1138.v8e727069a_025</version>
+      <version>1228.vd93135a_2fb_25</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
-      <version>2.289.1</version>
+      <version>2.361.4</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -133,20 +133,6 @@ THE SOFTWARE.
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.jcip</groupId>
-      <artifactId>jcip-annotations</artifactId>
-      <version>1.0</version>
-      <scope>provided</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.mojo</groupId>
-      <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.21</version>
-      <scope>provided</scope>
-      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>commons-logging</groupId>
@@ -166,13 +152,7 @@ THE SOFTWARE.
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.27</version>
-        <extensions>true</extensions>
-      </plugin>
-      <plugin>
-        <groupId>org.kohsuke.stapler</groupId>
-        <artifactId>maven-stapler-plugin</artifactId>
-        <version>1.17</version>
+        <version>3.38</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

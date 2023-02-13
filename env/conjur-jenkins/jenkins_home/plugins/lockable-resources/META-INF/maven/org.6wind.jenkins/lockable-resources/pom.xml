@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.6wind.jenkins</groupId>
   <artifactId>lockable-resources</artifactId>
-  <version>1106.vc9153f1a_ff25</version>
+  <version>1123.v4002ee23c671</version>
   <packaging>hpi</packaging>
   <name>Lockable Resources plugin</name>
   <description>This plugin allows to define lockable resources (such as printers, phones,
@@ -38,7 +38,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/lockable-resources-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/lockable-resources-plugin.git</developerConnection>
-    <tag>c9153f1aff251246b18bbeb0a1d0875be763c521</tag>
+    <tag>4002ee23c67196d9d072ef20fe61830f883d5a1d</tag>
     <url>https://github.com/jenkinsci/lockable-resources-plugin</url>
   </scm>
   <distributionManagement>
@@ -95,7 +95,7 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>script-security</artifactId>
-      <version>1228.vd93135a_2fb_25</version>
+      <version>1229.v4880b_b_e905a_6</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
