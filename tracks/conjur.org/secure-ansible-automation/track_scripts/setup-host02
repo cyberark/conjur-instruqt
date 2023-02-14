@@ -8,7 +8,7 @@ done
 
 echo "=== [START] apt update and installs ==="
 apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get -y sshpass
+DEBIAN_FRONTEND=noninteractive apt-get install sshpass -y
 echo "=== [FINISH] apt update and installs ==="
 
 # Add service02 account

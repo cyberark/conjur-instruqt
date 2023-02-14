@@ -24,7 +24,7 @@ You only need to do it once.
 This will tell the Conjur CLI where the Conjur service is located to send commands to:
 
 ```
-docker-compose exec client bash -c "echo yes | conjur init -u http://host01:8080 -a demo"
+docker-compose exec client sh -c "echo yes | conjur init -u http://host01:8080 -a demo -i"
 ```
 
 **Login to Conjur**

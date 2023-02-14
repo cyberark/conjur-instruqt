@@ -32,7 +32,7 @@ ansible-galaxy install cyberark.conjur-host-identity
 2. Create a host factory token:
 
 ```
-docker-compose exec client conjur hostfactory tokens create -i ansible | tee conjur/hftoken
+docker-compose exec client conjur hostfactory tokens create --hostfactory-id ansible | tee conjur/hftoken
 ```
 
 3. Save the token as environment variable:

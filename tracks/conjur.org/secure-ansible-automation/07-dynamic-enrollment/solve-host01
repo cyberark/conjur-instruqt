@@ -4,7 +4,7 @@ export COMPOSE_INTERACTIVE_NO_CLI=1
 
 ansible-galaxy install cyberark.conjur-host-identity
 
-docker-compose exec -T client conjur hostfactory tokens create -i ansible | tee conjur/hftoken
+docker-compose exec client conjur hostfactory tokens create --hostfactory-id ansible | tee conjur/hftoken
 
 hf_token="$(grep token hftoken | cut -d: -f2 | tr -d ' \r\n' | tr -d ','  | tr -d '\"' )"
 export HFTOKEN=$hf_token
@@ -25,4 +25,4 @@ cat >> /root/conjur/grant_conjur_id.yml <<EOF
       conjur_validate_certs: "false"
 EOF
 
-ansible-playbook -i conjur/inventory conjur/grant_conjur_id.yml
+ansible-playbook -i /root/conjur/inventory /root/conjur/grant_conjur_id.yml
