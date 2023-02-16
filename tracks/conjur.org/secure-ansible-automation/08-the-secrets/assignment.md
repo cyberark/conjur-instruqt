@@ -1,6 +1,6 @@
 ---
 slug: the-secrets
-id: g1hcjnuzsjs1
+id: 1e1qaqqxwyzr
 type: challenge
 title: The Secrets
 teaser: Initialize the secret variables previously loaded via Conjur Policy with values.

@@ -1,3 +1,4 @@
 #!/bin/bash
 
 mkdir -p /root/secure-playbook && cd "$_" || exit 1
+ansible-galaxy collection install -f cyberark.conjur 

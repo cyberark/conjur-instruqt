@@ -1,4 +1,5 @@
 #!/bin/bash
+COMPOSE_INTERACTIVE_NO_CLI=1
 set -euxo pipefail
  
 export COMPOSE_INTERACTIVE_NO_CLI=1

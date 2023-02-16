@@ -1,5 +1,5 @@
-slug: secure-ansible-automation
-id: zykfxpev23zx
+slug: secure-ansible-automation-v3
+id: k5fvfsoye6rb
 title: Secure Ansible Automation
 teaser: In this fully interactive hosted tutorial you will learn how to secure Ansible
   automation by keeping unsecured secrets out of Playbooks with Conjur open source
@@ -33,8 +33,6 @@ tags:
 - open-source
 owner: cyberark
 developers:
-- joe@joe-garcia.com
 - sean@instruqt.com
 - shlomo.heigh@cyberark.com
-maintenance: true
-checksum: "1431902445558803231"
+checksum: "11582722474569615034"

@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euxo pipefail
+
+# check
+echo "Checking the solution of the challenge"
+
+if ! grep "cat insecure-playbook/inventory" ~/.bash_history; then
+    fail-message "Please review the inventory file before continuing"
+fi

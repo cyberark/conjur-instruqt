@@ -1,6 +1,6 @@
 ---
 slug: typical-playbook
-id: fbbt613vjcdb
+id: btyjnb2453sj
 type: challenge
 title: Typical Playbook
 teaser: Explore and run a typical Ansible playbook on hosts defined in an inventory.
@@ -56,7 +56,7 @@ Before we can do anything, we must create an inventory defining hosts Ansible wi
 
 First, let's create an inventory file on the "Code Editor" tab. This is a common example of how inventory files hold connection information and secrets for Ansible to make connections to remote hosts. Paste the following to the "Code Editor" tab in a new file called `inventory`:
 
-```
+```text
 [demo_servers]
 host01 ansible_connection=ssh ansible_ssh_user=service01 ansible_ssh_pass=W/4m=cS6QSZSc*nd
 host02 ansible_connection=ssh ansible_ssh_user=service02 ansible_ssh_pass=5;LF+J4Rfqds:DZ8
@@ -66,7 +66,7 @@ host02 ansible_connection=ssh ansible_ssh_user=service02 ansible_ssh_pass=5;LF+J
 
 Next, let's create an insecure-playbook.yml Ansible playbook file and add what commands we'll be running in it. Paste the following to the "Code Editor" tab in a new file called `insecure-playbook.yml`:
 
-```
+```text
 - hosts: demo_servers
   tasks:
     - name: Get user name
@@ -82,6 +82,6 @@ Next, let's create an insecure-playbook.yml Ansible playbook file and add what c
 
 Once you're ready, run the `ansible-playbook` command below on the "Terminal" tab to run the playbook file against the remote hosts declared in the inventory file:
 
-```
+```bash
 ansible-playbook -i insecure-playbook/inventory insecure-playbook/insecure-playbook.yml
 ```

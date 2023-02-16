@@ -10,3 +10,7 @@ fi
 if [ ! -f /root/insecure-playbook/insecure-playbook.yml ]; then
   fail-message "Your challenge failed because you did not create an insecure-playbook.yml Ansible playbook file"
 fi
+
+if ! grep "ansible-playbook" ~/.bash_history; then
+    fail-message "You need to run the Ansible playbook against the remote hosts"
+fi

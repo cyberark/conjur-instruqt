@@ -1,6 +1,6 @@
 ---
 slug: risk-remediated
-id: 3dqw5bmisyll
+id: xaw6a5ccv6o2
 type: challenge
 title: Risk Remediated
 teaser: Review the remediated risk that was implemented in the previous challenge.
@@ -18,7 +18,7 @@ Let's review the new `inventory` file again.
 
 Execute:
 
-```
+```bash
 cat secure-playbook/inventory
 ```
 

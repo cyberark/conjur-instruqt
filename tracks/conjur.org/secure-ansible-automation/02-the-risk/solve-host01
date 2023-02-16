@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat insecure-playbook/inventory
+
+echo "cat insecure-playbook/inventory" >> ~/.bash_history

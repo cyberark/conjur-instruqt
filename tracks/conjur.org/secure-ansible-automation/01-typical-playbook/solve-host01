@@ -21,3 +21,5 @@ cat <<EOF > /root/insecure-playbook/insecure-playbook.yml
 EOF
 
 ansible-playbook -i insecure-playbook/inventory insecure-playbook/insecure-playbook.yml
+
+echo "ansible-playbook" >> ~/.bash_history

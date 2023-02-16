@@ -1,6 +1,6 @@
 ---
 slug: secure-playbook
-id: lzu3qyuydsy3
+id: twkf4pabhxo5
 type: challenge
 title: Secure Playbook
 teaser: Secure the Ansible playbook initially used to securely fetch secrets just-in-time
@@ -22,15 +22,9 @@ tabs:
 difficulty: basic
 timelimit: 300
 ---
-Let's convert the Conjur Host Identity to make it compatible with Ansible. We want to "urlify" it by changing any `/` in the host identity to `%2F`:
+Let's create an inventory file that defines our hosts that Ansible should connect to and execute our secure playbook on. Paste the following on the "Code Editor" tab in a new file named `inventory`:
 
-```
-sed -i "s=login host/=login host%2F=" /etc/conjur.identity
-```
-
-Next, let's create an inventory file that defines our hosts that Ansible should connect to and execute our secure playbook on. Paste the following on the "Code Editor" tab in a new file named `inventory`:
-
-```
+```text
 [demo_servers]
 host01
 host02
@@ -38,13 +32,13 @@ host02
 
 We also need to create the secure playbook that we'll be executing on the hosts contained in our inventory file. Paste the following on the "Code Editor" tab in a new file named `playbook.yml`:
 
-```
+```text
 - hosts: demo_servers
   vars:
       ansible_connection: ssh
-      ansible_host: "{{ lookup('conjur_variable', 'server/' + inventory_hostname+ '/host') }}"
-      ansible_user: "{{ lookup('conjur_variable', 'server/' + inventory_hostname+ '/user') }}"
-      ansible_ssh_pass: "{{ lookup('conjur_variable', 'server/' + inventory_hostname+ '/pass') }}"
+      ansible_host: "{{ lookup('conjur_variable', 'server/' + inventory_hostname + '/host') }}"
+      ansible_user: "{{ lookup('conjur_variable', 'server/' + inventory_hostname + '/user') }}"
+      ansible_ssh_pass: "{{ lookup('conjur_variable', 'server/' + inventory_hostname + '/pass') }}"
 
   tasks:
     - name: Get user name
@@ -60,6 +54,6 @@ We also need to create the secure playbook that we'll be executing on the hosts 
 
 Finally, let's execute the Ansible playbook against the hosts defined in the `inventory` file:
 
-```
+```bash
 ansible-playbook -i secure-playbook/inventory secure-playbook/playbook.yml
 ```

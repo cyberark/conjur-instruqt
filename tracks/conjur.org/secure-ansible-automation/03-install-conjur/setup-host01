@@ -1,16 +1,5 @@
 #!/bin/bash
 
-export COMPOSE_INTERACTIVE_NO_CLI=1
-
 docker-compose up -d
 mkdir -p /root/conjur && cd "$_" || exit 1
-
-# Wait for the Kubernetes API server to become available
-echo "=== [START] Waiting for the Conjur API"
-while ! curl --silent --fail --output /dev/null http://host01:8080
-do
-    sleep 1 
-done
-echo "=== [FINISH] Waiting for the Conjur API"
-
-docker-compose exec -T client mkdir -p /tmp
+docker-compose exec -T client mkdir -p /root
