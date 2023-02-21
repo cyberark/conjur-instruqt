@@ -1,12 +1,12 @@
 ---
 slug: jenkins-demo
-id: bplqmzdcrwdy
+id: pura3lwhcgi2
 type: challenge
 title: Jenkins Demo
-teaser: Short teaser goes here.
+teaser: Check out the assets in the demo folder
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Jenkins Console
   type: service

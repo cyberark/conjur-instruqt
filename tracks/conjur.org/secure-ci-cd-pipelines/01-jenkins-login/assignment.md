@@ -1,12 +1,12 @@
 ---
 slug: jenkins-login
-id: 6kgaxsiffkyd
+id: 3sqbnsg91o3j
 type: challenge
 title: Login to Jenkins
-teaser: Short teaser goes here.
+teaser: Start by logging in to Jenkins
 notes:
 - type: text
-  contents: Long description goes here. (prerequisites.md from Katacoda)
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Terminal
   type: terminal
@@ -26,7 +26,7 @@ timelimit: 300
 ---
 First, let's make sure that all the containers were started. Run the following command in the `Terminal` and make sure the following containers are returned:
 
-```
+```bash
 docker ps
 ```
 
@@ -42,13 +42,13 @@ If all containers are reported, we're ready to log in to Jenkins.
 
 2. Login as the following username:
 
-```
+```text
 admin
 ```
 
 3. Using the following password:
 
-```
+```text
 344827fbdbfb40d5aac067c7a07b9230
 ```
 

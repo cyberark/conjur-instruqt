@@ -1,12 +1,12 @@
 ---
 slug: conjur-plugin
-id: yeailb9zpvkk
+id: kdpkuyirkahw
 type: challenge
 title: Conjur Plugin
-teaser: Short teaser goes here.
+teaser: Add the Conjur Plugin for Jenkins
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Declare the variables, privileges, and entitlements
 tabs:
 - title: Terminal
   type: terminal
@@ -19,15 +19,15 @@ tabs:
 difficulty: basic
 timelimit: 300
 ---
-1. Download the `Conjur.hpi` file from https://github.com/cyberark/conjur-credentials-plugin/releases
+1. Download the `Conjur.hpi` file from <https://github.com/cyberark/conjur-credentials-plugin/releases>
 
 2. Navigate to `Jenkins -> Manage Jenkins -> Manage Plugins -> Advanced` in the `Jenkins Console` tab.
-3. In the Upload Plugin section, browse for the downloaded copy of `Conjur.hpi`.
+3. In the Deploy Plugin section, browse for the downloaded copy of `Conjur.hpi`.
 
-4. Click `Upload`
+4. Click `Deploy`
 
 5. After the upload is complete, give the following command in the `Terminal` tab:
 
-```
+```bash
 docker restart jenkins
 ```

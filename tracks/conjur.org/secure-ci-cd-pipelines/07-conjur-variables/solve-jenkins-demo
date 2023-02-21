@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+docker exec -it conjur-cli bash
+cat > jenkins-app.yml << EOF
+#Declare the secrets required by the application
+
+- &variables
+  - !variable web_password
+
+# Define a group and assign privileges for fetching the secrets
+
+- !group secrets-users
+
+- !permit
+  resource: *variables
+  privileges: [ read, execute ]
+  roles: !group secrets-users
+
+# Entitlements that add the Jenkins layer of hosts to the group
+
+- !grant
+  role: !group secrets-users
+  member: !layer /jenkins-frontend
+EOF
+exit
+
+docker exec conjur-cli conjur policy load -b jenkins-app -f /jenkins-app.yml
+
+echo "docker exec conjur-cli" >> ~/.bash_history
+
+exit 0

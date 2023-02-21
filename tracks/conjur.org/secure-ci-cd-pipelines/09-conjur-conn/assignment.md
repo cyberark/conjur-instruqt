@@ -1,12 +1,12 @@
 ---
 slug: conjur-conn
-id: 2evpc5pd7vky
+id: cuhs2gqv4ziw
 type: challenge
 title: Conjur Connection
-teaser: Short teaser goes here.
+teaser: Login to Conjur
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Jenkins Console
   type: service
@@ -24,13 +24,13 @@ The following steps define the connection to the Conjur appliance. This is typic
 You may need to login to Jenkins again after restart.
 Jenkins user name is
 
-```
+```text
 admin
 ```
 
 and password is
 
-```
+```text
 344827fbdbfb40d5aac067c7a07b9230
 ```
 
@@ -40,7 +40,7 @@ and password is
 
  - Username:
 
-```
+```bash
 host/jenkins-frontend/frontend-01
 ```
 
@@ -49,7 +49,7 @@ host/jenkins-frontend/frontend-01
   Copy and paste the API key that was returned by Conjur when you loaded the policy declaring this host.
   Forgot it?  No worries, execute the following command to review it:
 
-  ```
+  ```bash
   cat frontend.out
   ```
 
@@ -59,7 +59,6 @@ You can also decide whether to set up global or folder-level access to Conjur, o
 
 To learn more, visit [CyberArk Conjur Doc](https://docs.conjur.org/Latest/en/Content/Integrations/jenkins-configure.htm?tocpath=Integrations%7CJenkins%7C_____2#ConfigureJenkinsConjurconnection)
 
-
 1. Navigate to either `Jenkins > Manage Jenkins > Configure System` in the `Jenkins Console` tab.
 
 2. Scroll down to `Conjur Appliance`
@@ -68,21 +67,20 @@ To learn more, visit [CyberArk Conjur Doc](https://docs.conjur.org/Latest/en/Con
 
 - Account:
 
-```
+```bash
 quick-start
 ```
 
 - Appliance URL:
 
-```
+```text
 http://conjur
 ```
 
 - Conjur Authn Credential:
 
-```
+```text
 host/jenkins-frontend/frontend-01/*****
 ```
-
 
 4. Click Save

@@ -6,7 +6,7 @@ description: |-
   A long description of the track.
 
   You can use any GitHub flavoured markdown.
-icon: https://raw.githubusercontent.com/infamousjoeg/instruqt/main/assets/logos/CyberArkCommons_Vert_4C%40256x.png
+icon: https://raw.githubusercontent.com/cyberark/conjur-instruqt/main/assets/logos/CyberArkCommons_Vert_4C%40256x.png
 tags:
 - cyberark
 - conjur

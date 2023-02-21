@@ -1,13 +1,13 @@
 ---
 slug: conjur-setup
-id: bcaiqxbzwxmb
+id: oksfu6du3nrg
 type: challenge
 title: Conjur Setup
-teaser: Short teaser goes here.
+teaser: Conjur introduction
 notes:
 - type: text
   contents: |-
-    It works well, right?   Jenkins even masked the credentials.
+    It works well, right? Jenkins even masked the credentials.
 
     Think about your environment, where you have various systems and zones, not to mention dev, staging, UAT & production sites.
 
@@ -33,7 +33,6 @@ timelimit: 300
 Conjur has been started.
 We need to preform the following steps to make sure it's up & running.
 
-
 ## Verify the system is up & running
 
 To verify, visit the `Conjur UI` tab and make sure the page loads and says Conjur is up and running.
@@ -44,7 +43,7 @@ Now let's setup an account to Conjur.
 
 In the `Terminal` tab, complete the following commands:
 
-```
+```bash
 docker exec conjur conjurctl account create quick-start | tee admin_key
 ```
 
@@ -56,17 +55,18 @@ _Prevent data loss: The conjurctl account create command gives you the public ke
 ## Initialize Conjur Client
 
 To initialize conjur client, execute:
-```
-docker exec conjur-cli conjur init -u conjur -a quick-start
+
+```bash
+docker exec conjur-cli conjur init -u http://conjur -a quick-start -i
 ```
 
 ## Logon to Conjur
 
-To login to Conjur,execute:
-```
+To login to Conjur, execute:
+
+```bash
 export admin_api_key="$(cat admin_key|awk '/API key for admin/ {print $NF}'|tr '  \n\r' ' '|awk '{$1=$1};1')"
 docker exec conjur-cli conjur login -i admin -p $admin_api_key
 ```
 
 It should display `Logged in` once you are successfully logged in
-

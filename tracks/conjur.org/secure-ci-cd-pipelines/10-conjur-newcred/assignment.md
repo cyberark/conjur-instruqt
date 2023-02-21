@@ -1,12 +1,12 @@
 ---
 slug: conjur-newcred
-id: bvgipi4o9nfp
+id: sdnkj2rpfepz
 type: challenge
 title: Conjur New Credential
-teaser: Short teaser goes here.
+teaser: Add credentials
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Jenkins Console
   type: service
@@ -19,13 +19,15 @@ timelimit: 300
 Visit `Jenkins > Demo > Credentials > Folder > Global credentials (unrestricted) > Add Credentials` on the `Jenkins Console` tab to create a new credential
 
 -  Kind: `Conjur Secret Credentials`
+
 -  Variable Path:
 
-  ```
+  ```text
   jenkins-app/web_password
   ```
+
 - ID:
-  ```
+  ```text
   WEB_PASSWORD
   ```
 

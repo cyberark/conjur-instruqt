@@ -33,7 +33,7 @@ echo "=== [START] git sparse checkout ==="
 mkdir -p /tmp/instruqt
 pushd /tmp/instruqt || exit
     git init
-    git remote add -f origin https://github.com/infamousjoeg/instruqt.git
+    git remote add -f origin https://github.com/cyberark/conjur-instruqt.git
     git config core.sparseCheckout true
     echo "env/conjur-k8s" >> .git/info/sparse-checkout
     git pull origin main

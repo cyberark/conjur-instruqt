@@ -1,16 +1,17 @@
-slug: secure-ci-cd-pipelines
-id: m6kw2ytipj7m
-type: track
+slug: secure-ci-cd-pipelines-v2
+id: kldkuzyzyiws
 title: Secure CI/CD Pipelines
-teaser: A short description of the track.
+teaser: Learn how to configure Jenkins Conjur Credential plugin to retrieve secrets
+  & secure Jenkins Freestyle projects
 description: |-
-  *Please note that this tutorial refers to offical Conjur tutorial at https://docs.conjur.org/Latest/en/Content/Integrations/jenkins.htm, and modified for Katacoda platform.*
+  *Please note that this tutorial refers to offical Conjur tutorial at https://docs.conjur.org/Latest/en/Content/Integrations/jenkins.htm.*
 
   In this tutorial, you will learn how to secure Jenkins pipelines using Conjur & credentials plugins.
 
   The Conjur Jenkins plugin retrieves secrets from Conjur for use in Jenkins pipeline scripts or Freestyle projects.
 
   ### Overview
+
   The conjur-credentials-plugin makes secrets stored in an existing Conjur database available to Jenkins jobs. Jenkins jobs can authenticate to Conjur and access specific secret values for which they have authorization. You store and manage the secrets in Conjur.
 
   We provide the plugin binary, which you install and configure on your Jenkins host.
@@ -20,6 +21,7 @@ description: |-
   When all configurations are in place, Jenkins scripts and projects simply reference the variable using the configured Jenkins ID.
 
   ### Benefits
+
   The Conjur Jenkins integration provides the following advantages to Jenkins DevOps administrators:
 
   - **Security**. Secret values are stored and obtained securely. Secrets are not exposed in Jenkins jobs or referenced files.
@@ -30,15 +32,14 @@ description: |-
 
   - **Segregation of duties**. Jenkins DevOps administrators are isolated from secrets management.
 
-  - **Segregation of duties**.The plugin supports Jenkins scripts or projects. It supports global or folder-specific configurations.
+  - **Segregation of duties**. The plugin supports Jenkins scripts or projects. It supports global or folder-specific configurations.
 
   - **Simplification**. The plugin simplifies Jenkins job and project creation by requiring only a reference ID to a secret.
 
   - **Familiarity**. The plugin is configured using the Jenkins UI, a familiar interface for Jenkins users.
 
-
   [www.conjur.org](https://www.conjur.org)
-icon: https://raw.githubusercontent.com/infamousjoeg/instruqt/main/assets/logos/CyberArkCommons_Vert_4C%40256x.png
+icon: https://raw.githubusercontent.com/cyberark/conjur-instruqt/main/assets/logos/CyberArkCommons_Vert_4C%40256x.png
 tags:
 - cyberark
 - conjur
@@ -48,6 +49,7 @@ tags:
 owner: cyberark
 developers:
 - joe@joe-garcia.com
-private: false
-published: false
-checksum: "2973059394890580001"
+- sean@instruqt.com
+- shlomo.heigh@cyberark.com
+maintenance: true
+checksum: "11867220576364567305"

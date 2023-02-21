@@ -1,12 +1,12 @@
 ---
 slug: conjur-appid
-id: yayixextiyrh
+id: 8upfxcmx2xs3
 type: challenge
 title: Conjur App ID
-teaser: Short teaser goes here.
+teaser: Let's create an application identity in Conjur
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Terminal
   type: terminal
@@ -20,7 +20,7 @@ The following steps create Conjur policy that defines the Jenkins host and adds 
 
 1. Declare a policy branch for Jenkins & save it as a .yml file
 
-```
+```bash
 docker exec -it conjur-cli bash
 cat > conjur.yml << EOF
 - !policy
@@ -38,7 +38,7 @@ docker exec conjur-cli conjur policy replace -b root -f /conjur.yml
 
 4. Declare the layer and Jenkins host in another file. Copy the following policy as a template & save it.
 
-```
+```bash
 docker exec -it conjur-cli bash
 cat > jenkins-frontend.yml << EOF
 - !layer
@@ -68,7 +68,8 @@ docker exec conjur-cli conjur policy load -b jenkins-frontend -f /jenkins-fronte
 As it creates each new host, Conjur returns an API key.
 
 We will use the host entity later within this tutorial, so let's put it in memory
-```
+
+```bash
 export frontend_api_key=$(cat frontend.out | jq -r '.created_roles."quick-start:host:jenkins-frontend/frontend-01".api_key')
 echo $frontend_api_key
 ```
@@ -83,7 +84,7 @@ If variables are already defined, you need only add the Jenkins layer to an exis
 
 7. Declare a policy branch for the application & save it
 
-```
+```bash
 docker exec -it conjur-cli bash
 cat > conjur2.yml << EOF
 - !policy
@@ -99,4 +100,3 @@ exit
 ```
 docker exec conjur-cli conjur policy load -b root -f /conjur2.yml
 ```
-

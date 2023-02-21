@@ -1,12 +1,12 @@
 ---
 slug: jenkins-freestyle
-id: ix1ufrkhft87
+id: x1zolb6dwxcl
 type: challenge
 title: Jenkins Freestyle
-teaser: Short teaser goes here.
+teaser: Learn about Freestyle projects
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Jenkins Console
   type: service
