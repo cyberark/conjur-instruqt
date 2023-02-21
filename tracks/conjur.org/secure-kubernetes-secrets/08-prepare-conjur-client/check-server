@@ -10,7 +10,7 @@ echo "This is the check script"
 
 set -euxo pipefail
 
-if ! grep "conjur authn login" ~/.bash_history; then
+if ! grep "conjur login" ~/.bash_history; then
     fail-message "Make sure you login to Conjur before continuing"
 fi
 

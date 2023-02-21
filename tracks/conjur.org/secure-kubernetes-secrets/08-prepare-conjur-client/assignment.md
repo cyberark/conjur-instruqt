@@ -22,13 +22,13 @@ In this section, we'll configure the following items for setting up the Conjur c
 
 ## Alias for Conjur CLI
 
-Conjur CLI client can be either installed as [Ruby gem](https://docs.conjur.org/Latest/en/Content/Tools/CLI_Install_CLI.htm?tocpath=Setup%7C_____2#ruby-gem) or [Docker Container](https://docs.conjur.org/Latest/en/Content/Tools/CLI_Install_CLI.htm?tocpath=Setup%7C_____2#docker-container). In order to have the best of both worlds, we will create an alias to execute the CLI as container.
+Conjur CLI client can be either installed as [binary](https://docs.conjur.org/Latest/en/Content/Tools/CLI_Install_CLI.htm?tocpath=Setup%7C_____2#ruby-gem) or [Docker Container](https://docs.conjur.org/Latest/en/Content/Tools/CLI_Install_CLI.htm?tocpath=Setup%7C_____2#docker-container). In order to have the best of both worlds, we will create an alias to execute the CLI as container.
 
 ```bash
 export CONJUR_URL=$(kubectl describe svc conjur-cluster-conjur-oss -n conjur-server |grep Endpoints | awk '{print $2}')
 export SERVICE_IP=$(echo $CONJUR_URL | awk  -F ':' '{print $1}')
 
-alias conjur='docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd):/root cyberark/conjur-cli:5 '
+alias conjur='docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd):/root cyberark/conjur-cli:8 '
 ```
 
 In your own environment, you may wish to add it in shell script file, e.g. `~/.bashrc` or `~/.zshrc`
@@ -38,7 +38,7 @@ In your own environment, you may wish to add it in shell script file, e.g. `~/.b
 To initialize the client, execute:
 
 ```bash
-conjur init --url https://conjur.demo.com:9443  --account default
+conjur init --url https://conjur.demo.com:9443  --account default --self-signed
 ```
 
 Trust this certificate:
@@ -61,7 +61,7 @@ grep admin admin.out
 ```
 
 ```bash
-conjur authn login -u admin -p $(grep admin admin.out | cut -c20-)
+conjur login -i admin -p $(grep admin admin.out | cut -c20-)
 ```
 
 ## Reset Admin Password
@@ -71,14 +71,14 @@ This step is optional. However, like any other systems, it is highly recommended
 Let's update our admin password to `MySecretP@ss1`
 
 ```bash
-conjur user update_password -p MySecretP@ss1
+conjur user change-password -p MySecretP@ss1
 ```
 
 Next, Log off & on again with the new password `MySecretP@ss1`
 
 ```bash
-conjur authn logout && \
-conjur authn login -u admin
+conjur logout && \
+conjur login -i admin
 ```
 
 Please enter admin's password (it will not be echoed):

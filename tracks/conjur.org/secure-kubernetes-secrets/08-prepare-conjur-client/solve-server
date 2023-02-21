@@ -9,11 +9,11 @@
 echo "This is the solve script"
 
 grep admin admin.out
-conjur authn login -u admin -p $(grep admin admin.out | cut -c20-)
-conjur user update_password -p MySecretP@ss1
-conjur authn logout && \
-conjur authn login -u admin -p MySecretP@ss1
+conjur login -i admin -p $(grep admin admin.out | cut -c20-)
+conjur user change-password -p MySecretP@ss1
+conjur logout && \
+conjur login -i admin -p MySecretP@ss1
 
-echo "conjur authn login" >> ~/.bash_history
+echo "conjur login" >> ~/.bash_history
 
 exit 0

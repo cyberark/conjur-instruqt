@@ -87,7 +87,7 @@ cat secretless/app-policy.yml
 Let's load the generated policy by executing:
 
 ```bash
-conjur policy load root /root/secretless/app-policy.yml
+conjur policy load -b root -f /root/secretless/app-policy.yml
 ```
 
 ## Grant the Conjur instance access to pods

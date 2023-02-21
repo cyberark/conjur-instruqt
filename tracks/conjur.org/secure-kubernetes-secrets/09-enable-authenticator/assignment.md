@@ -76,9 +76,9 @@ cat conjur/policy_for_k8s_authenticator_service.yml
 To load all 3 policies into Conjur, execute:
 
 ```bash
-conjur policy load root /root/conjur/policy_for_human_users.yml && \
-conjur policy load root /root/conjur/policy_for_authenticator_identities.yml && \
-conjur policy load root /root/conjur/policy_for_k8s_authenticator_service.yml
+conjur policy load -b root -f /root/conjur/policy_for_human_users.yml && \
+conjur policy load -b root -f /root/conjur/policy_for_authenticator_identities.yml && \
+conjur policy load -b root -f /root/conjur/policy_for_k8s_authenticator_service.yml
 ```
 
 ## Initalize CA
@@ -99,7 +99,7 @@ source conjur/initialize_ca.sh
 
 ## Configure Conjur authenticators
 
-We have setup the conjur authenicators during Conjur setup!
+We have setup the Conjur authenicators during Conjur setup!
 
 To verify, execute:
 

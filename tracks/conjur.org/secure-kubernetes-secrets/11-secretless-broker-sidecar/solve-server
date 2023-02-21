@@ -37,7 +37,7 @@ cat << EOL > ./secretless/app-policy.yml
 EOL
 
 cat secretless/app-policy.yml
-conjur policy load root /root/secretless/app-policy.yml
+conjur policy load -b root -f /root/secretless/app-policy.yml
 
 . ./secretless/env.sh
 
