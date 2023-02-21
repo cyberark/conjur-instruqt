@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+kubectl create namespace conjur-server
+helm repo add cyberark https://cyberark.github.io/helm-charts
+helm repo update
+kubectl apply -f conjur/role-binding.yaml
+helm install conjur-cluster cyberark/conjur-oss \
+     --set ssl.hostname=conjur.demo.com,dataKey="$(docker run --rm cyberark/conjur data-key generate)",authenticators="authn-k8s/dev" \
+     --set postgres.persistentVolume.create=false \
+     --set service.external.enabled=false \
+     --namespace conjur-server
+export POD_NAME=$(kubectl get pods --namespace conjur-server \
+   -l "app=conjur-oss,release=conjur-cluster" \
+   -o jsonpath="{.items[0].metadata.name}")
+kubectl exec --namespace conjur-server \
+    $POD_NAME \
+  --container=conjur-oss \
+  -- conjurctl account create "default" | tee admin.out
+export CONJUR_URL=$(kubectl describe svc conjur-cluster-conjur-oss -n conjur-server |grep Endpoints | awk '{print $2}')
+export SERVICE_IP=$(echo $CONJUR_URL | awk  -F ':' '{print $1}')
+echo $SERVICE_IP
+echo "$SERVICE_IP conjur.demo.com" >> /etc/hosts
+
+echo "kubectl exec --namespace conjur-server" >> ~/.bash_history
+
+exit 0

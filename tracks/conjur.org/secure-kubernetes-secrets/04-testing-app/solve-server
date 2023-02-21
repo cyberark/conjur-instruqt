@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+export URL=$(kubectl describe service testapp-insecure --namespace=testapp |grep Endpoints | awk '{print $2}' ) && \
+echo $URL
+
+#curl -d "{\"name\": \"$(shuf -n 1 /usr/share/dict/american-english)\"}" -H "Content-Type: application/json" $URL/pet
+
+# Fill history for automated testing
+echo "URL/pets" >> ~/.bash_history
+
+exit 0

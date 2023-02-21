@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# This script runs when the platform setup the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the setup script"
+
+export CONJUR_URL=$(kubectl describe svc conjur-cluster-conjur-oss -n conjur-server |grep Endpoints | awk '{print $2}')
+export SERVICE_IP=$(echo $CONJUR_URL | awk  -F ':' '{print $1}')
+
+echo "alias conjur=\"docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd):/root cyberark/conjur-cli:5 \"" >> /root/.bashrc
+source /root/.bashrc
+
+exit 0

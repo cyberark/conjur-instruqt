@@ -1,0 +1,126 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+cat secretless/env.sh
+
+. ./secretless/env.sh
+cat << EOL > ./secretless/app-policy.yml
+
+# Policy enabling the Kubernetes authenticator for your application
+- !policy
+  id: conjur/authn-k8s/${AUTHENTICATOR_ID}/apps
+  body:
+    - &hosts
+      - !host
+        id: service-account-based-app
+        annotations:
+          authn-k8s/namespace: ${APP_NAMESPACE}
+          authn-k8s/service-account: ${APP_SERVICE_ACCOUNT_NAME}
+          authn-k8s/authentication-container-name: ${APP_AUTHENTICATION_CONTAINER_NAME}
+          kubernetes: "true"
+    - !grant
+      role: !layer
+      members: *hosts
+# Grant application's authn identity membership to the application secrets reader layer so authn identity inherits read privileges on application secrets
+- !grant
+  role: !layer ${APP_SECRETS_READER_LAYER}
+  members:
+  - !host /conjur/authn-k8s/${AUTHENTICATOR_ID}/apps/service-account-based-app
+
+EOL
+
+cat secretless/app-policy.yml
+conjur policy load root /root/secretless/app-policy.yml
+
+. ./secretless/env.sh
+
+cat << EOL > secretless/conjur-authenticator-role.yml
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: conjur-authenticator
+  namespace: ${APP_NAMESPACE}
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods", "serviceaccounts"]
+  verbs: ["get", "list"]
+- apiGroups: ["extensions"]
+  resources: [ "deployments", "replicasets"]
+  verbs: ["get", "list"]
+- apiGroups: ["apps"]  # needed on OpenShift 3.7+
+  resources: [ "deployments", "statefulsets", "replicasets"]
+  verbs: ["get", "list"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create", "get"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: conjur-authenticator-role-binding
+  namespace: ${APP_NAMESPACE}
+subjects:
+  - kind: ServiceAccount
+    name: ${OSS_CONJUR_SERVICE_ACCOUNT_NAME}
+    namespace: ${OSS_CONJUR_NAMESPACE}
+roleRef:
+  kind: Role
+  name: conjur-authenticator
+  apiGroup: rbac.authorization.k8s.io
+EOL
+
+cat secretless/conjur-authenticator-role.yml
+kubectl create -f secretless/conjur-authenticator-role.yml
+
+. ./secretless/env.sh
+
+kubectl \
+  --namespace "${APP_NAMESPACE}" \
+  create configmap \
+  conjur-cert \
+  --from-file=ssl-certificate="conjur-default.pem"
+
+. ./secretless/env.sh
+
+cat << EOL > ./secretless/secretless.yml
+version: "2"
+services:
+  postgres-db:
+    connector: pg
+    listenOn: tcp://0.0.0.0:5432
+    credentials:
+      host:
+        from: conjur
+        get: ${APP_SECRETS_POLICY_BRANCH}/host
+      port:
+        from: conjur
+        get: ${APP_SECRETS_POLICY_BRANCH}/port
+      username:
+        from: conjur
+        get: ${APP_SECRETS_POLICY_BRANCH}/username
+      password:
+        from: conjur
+        get: ${APP_SECRETS_POLICY_BRANCH}/password
+      sslmode: disable
+EOL
+
+. ./secretless/env.sh
+
+kubectl \
+  --namespace "${APP_NAMESPACE}" \
+  create configmap \
+  secretless-config \
+  --from-file=./secretless/secretless.yml
+
+echo "conjur policy load" >> ~/.bash_history
+echo "secretless/conjur-authenticator-role.yml" >> ~/.bash_history
+
+exit 0

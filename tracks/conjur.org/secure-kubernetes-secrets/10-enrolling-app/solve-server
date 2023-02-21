@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+conjur policy load root /root/secretless/testapp-policy.yml
+conjur list
+conjur variable values add app/testapp/secret/password "5b3e5f75cb3cdc725fe40318"
+conjur variable values add app/testapp/secret/username "test_app"
+conjur variable values add app/testapp/secret/host "testapp-db.testapp.svc.cluster.local"
+conjur variable values add app/testapp/secret/port "5432"
+
+echo "conjur policy load root" >> ~/.bash_history
+echo "app/testapp/secret/password" >> ~/.bash_history
+echo "app/testapp/secret/username" >> ~/.bash_history
+echo "app/testapp/secret/host" >> ~/.bash_history
+echo "app/testapp/secret/port" >> ~/.bash_history
+
+exit 0

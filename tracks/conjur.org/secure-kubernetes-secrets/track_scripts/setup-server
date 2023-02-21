@@ -10,9 +10,9 @@ echo "=== [FINISH] Waiting for the host bootstrap"
 
 # Wait for the Kubernetes API server to become available
 echo "=== [START] Waiting for the Kubernetes API"
-while ! curl --silent --fail --output /dev/null http://localhost:8001/api 
+while ! curl --silent --fail --output /dev/null http://localhost:8001/api
 do
-    sleep 1 
+    sleep 1
 done
 echo "=== [FINISH] Waiting for the Kubernetes API"
 
@@ -28,14 +28,21 @@ apt-get update 2&>/dev/null
 DEBIAN_FRONTEND=noninteractive apt-get install git jq -y 2&>/dev/null
 echo "=== [FINISH] apt update and installs ==="
 
+echo "=== [START] setup directory ==="
+#setup directory
+mkdir -p /root/instruqt
+echo "=== [FINISH] setup directory ==="
+
 # Git sparse checkout
 echo "=== [START] git sparse checkout ==="
-mkdir -p /tmp/instruqt
-pushd /tmp/instruqt || exit
+
+pushd /root/instruqt || exit
     git init
-    git remote add -f origin https://github.com/cyberark/conjur-instruqt.git
+    git remote add -f origin https://github.com/scarolan/instruqt.git
     git config core.sparseCheckout true
     echo "env/conjur-k8s" >> .git/info/sparse-checkout
     git pull origin main
 popd || exit
 echo "=== [FINISH] git sparse checkout ==="
+
+/bin/set-workdir ~/instruqt/env/conjur-k8s
