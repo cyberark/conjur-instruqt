@@ -5,6 +5,7 @@ For general contribution and community guidelines, please see the [community rep
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
+- [Development](#development)
 - [Testing](#testing)
 - [Releases](#releases)
 - [Updating Jenkins plugins](#updating-jenkins-plugins)
@@ -17,6 +18,15 @@ You can install it by following the instructions on the [Instruqt website](https
 A link to the Instruqt documentation can be found [here](https://docs.instruqt.com/).
 
 **Note:** If you encounter an error when running the `instruqt` command, you may need to run `instruqt update` to update the CLI.
+
+## Development
+
+Before publishing changes to a track, you should put the track into maintenance mode. This option can be found under "Track options"
+on the Instruqt dashboard.
+
+![Maintenance Mode](assets/maintenance_mode.png)
+
+After pushing your changes, you should test the track and then take the track out of maintenance mode.
 
 ## Testing
 
