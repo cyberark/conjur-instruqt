@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+docker exec -it conjur-cli bash
+cat > conjur.yml << EOF
+- !policy
+  id: jenkins-frontend
+EOF
+exit
+
+docker exec conjur-cli conjur policy replace -b root -f /conjur.yml
+
+docker exec -it conjur-cli bash
+cat > jenkins-frontend.yml << EOF
+- !layer
+- !host frontend-01
+- !grant
+  role: !layer
+  member: !host frontend-01
+EOF
+exit
+
+docker exec conjur-cli conjur policy load -b jenkins-frontend -f /jenkins-frontend.yml | tee frontend.out
+
+export frontend_api_key=$(cat frontend.out | jq -r '.created_roles."quick-start:host:jenkins-frontend/frontend-01".api_key')
+echo $frontend_api_key
+
+docker exec -it conjur-cli bash
+cat > conjur2.yml << EOF
+- !policy
+  id: jenkins-app
+EOF
+exit
+
+docker exec conjur-cli conjur policy load -b root -f /conjur2.yml
+
+echo "conjur-cli" >> ~/.bash_history
+
+exit 0

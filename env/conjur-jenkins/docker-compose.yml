@@ -16,7 +16,7 @@ services:
       - "8080:80"
 
   client:
-    image: conjurinc/cli5
+    image: cyberark/conjur-cli:8
     depends_on: [ conjur ]
     entrypoint: sleep
     command: infinity

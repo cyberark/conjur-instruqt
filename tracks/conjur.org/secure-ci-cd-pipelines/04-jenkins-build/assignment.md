@@ -1,12 +1,12 @@
 ---
 slug: jenkins-build
-id: cpp5yfjhq3jj
+id: y7800bocbq2k
 type: challenge
 title: Jenkins Build
-teaser: Short teaser goes here.
+teaser: Let's build a project
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Jenkins Console
   type: service
@@ -20,7 +20,7 @@ Let's build the project and make sure it's working
 
 1. Click on `Typical Freestyle project` to go back the project page
 
-2. Click `Build Now` on the left.   After a moment, a new build history will be shown
+2. Click `Build Now` on the left. After a moment, a new build history will be shown
 
 3. Click on the new build number under `Build` & choose `Console Output` on the left menu
 

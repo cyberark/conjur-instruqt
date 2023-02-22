@@ -1,23 +1,34 @@
-slug: secure-kubernetes-secrets
-id: t4nqfojodazp
-type: track
-title: Secure Kubernetes Secrets
-teaser: A short description of the track.
+slug: secure-kubernetes-secrets-v2
+id: xlbvpbr88oct
+title: Secretless Broker on Kubernetes
+teaser: Learn how to use Secretless Broker on Kubernetes
 description: |-
-  A long description of the track.
+  ## Before we begin...
+  <br/>
 
-  You can use any GitHub flavoured markdown.
+  This is a detailed, step-by-step tutorial for securing secrets of kubernetes-based applications
+
+  We will:
+
+  1. Deploy a typical kubernetes application with database
+  2. Discover the risk
+  3. Deploy Conjur on Kubernetes
+  4. Store its credentials in Kubernetes secrets
+  5. Setup Secretless Broker to proxy connections to it
+  6. Deploy an application that connects to the database without knowing its password
+
+  [https://www.conjur.org](https://www.conjur.org)
 icon: https://raw.githubusercontent.com/infamousjoeg/instruqt/main/assets/logos/CyberArkCommons_Vert_4C%40256x.png
 tags:
 - cyberark
-- conjur
+- secretless
 - secrets-management
 - open-source
 - kubernetes
 owner: cyberark
 developers:
 - joe@joe-garcia.com
-private: false
-published: false
+- sean@instruqt.com
+- shlomo.heigh@cyberark.com
 maintenance: true
-checksum: "17729318713182278343"
+checksum: "7260202343683228252"

@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 # Wait for bootstrap to complete
 until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
@@ -17,7 +17,7 @@ echo "=== [START] git sparse checkout ==="
 mkdir -p /tmp/instruqt
 cd /tmp/instruqt || exit
 git init
-git remote add -f origin https://github.com/infamousjoeg/instruqt.git
+git remote add -f origin https://github.com/cyberark/conjur-instruqt
 git config core.sparseCheckout true
 echo "env/conjur-jenkins" >> .git/info/sparse-checkout
 git pull origin main
@@ -33,4 +33,7 @@ export CONJUR_DATA_KEY="$generated_data_key"
 echo "export CONJUR_DATA_KEY=${generated_data_key}" >> /root/.bashrc
 docker pull postgres:9.6
 docker-compose up -d
+
+/bin/set-workdir /root
+
 echo "=== [FINISH] Conjur initial setup ==="

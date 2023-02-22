@@ -1,0 +1,6 @@
+[allowlist]
+paths = [
+    '''env/conjur-jenkins/jenkins_home/updates/default.json''',
+    '''env/conjur-jenkins/jenkins_home/updates/updates.json''',
+    '''env/conjur-jenkins/jenkins_home/plugins/*/META-INF/MANIFEST.MF'''
+]

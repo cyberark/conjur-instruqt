@@ -5,4 +5,12 @@ set -euxo pipefail
 echo "Checking the solution of the challenge"
 if [ ! -f /root/conjur/admin.out ]; then
   fail-message "Your challenge failed because you did not create a demo account in the Conjur service"
+  exit 1
 fi
+
+if ! grep "docker-compose exec conjur" ~/.bash_history; then
+  fail-message "Create an account in Conjur before continuing"
+  exit 1
+fi
+
+exit 0

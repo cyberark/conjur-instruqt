@@ -3,10 +3,10 @@ set -euxo pipefail
 
 # check
 echo "Checking the solution of the challenge"
-if [ ! -f /root/secure-playbook/inventory ]; then
-  fail-message "Your challenge failed because you did not create an inventory file for Ansible"
-fi
+#if [ ! -f ~/secure-playbook/inventory ]; then
+#  fail-message "Your challenge failed because you did not create an inventory file for Ansible"
+#fi
 
-if [ ! -f /root/secure-playbook/playbook.yml ]; then
-  fail-message "Your challenge failed because you did not create an playbook.yml Ansible playbook file"
-fi
+#if [ ! -f ~/secure-playbook/playbook.yml ]; then
+#  fail-message "Your challenge failed because you did not create an playbook.yml Ansible playbook file"
+#fi

@@ -14,3 +14,5 @@ fi
 if [ ! -f /root/conjur/ansible.yml ]; then
   fail-message "Your challenge failed because you did not create a ansible.yml policy file"
 fi
+
+exit 0

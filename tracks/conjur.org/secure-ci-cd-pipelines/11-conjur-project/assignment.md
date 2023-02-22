@@ -1,12 +1,12 @@
 ---
 slug: conjur-project
-id: uwrcgs9qnlwv
+id: syf0ycnltjft
 type: challenge
 title: Conjur Project
-teaser: Short teaser goes here.
+teaser: Create a new project
 notes:
 - type: text
-  contents: Long description goes here.
+  contents: Please wait while we setup the next challenge
 tabs:
 - title: Jenkins Console
   type: service
@@ -25,12 +25,12 @@ Let's test the setup by copying & updating the project
 
  - Enter an item name:
 
-   ```
+   ```text
    Secure Freestyle Project
    ```
  - Type:
 
-   ```
+   ```text
    Freestyle Project
    ```
 
@@ -43,7 +43,7 @@ Let's test the setup by copying & updating the project
 
 - Variable:
 
-  ```
+  ```text
   WEB_PASSWORD
   ```
 
@@ -54,7 +54,8 @@ Let's test the setup by copying & updating the project
 2. Click `Add build step > Execute shell`
 
    Command to add:
-   ```
+
+   ```bash
    curl -Is -u theServerAccount:$WEB_PASSWORD http://http-auth-server
    ```
 

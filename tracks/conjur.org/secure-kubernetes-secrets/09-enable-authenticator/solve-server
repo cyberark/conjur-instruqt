@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+cat conjur/policy_for_human_users.yml
+cat conjur/policy_for_authenticator_identities.yml
+cat conjur/policy_for_k8s_authenticator_service.yml
+conjur policy load -b root -f conjur/policy_for_human_users.yml && \
+conjur policy load -b root -f conjur/policy_for_authenticator_identities.yml && \
+conjur policy load -b root -f conjur/policy_for_k8s_authenticator_service.yml
+cat conjur/initialize_ca.sh
+source conjur/initialize_ca.sh
+export POD_NAME=$(kubectl get pods --namespace conjur-server \
+   -l "app=conjur-oss,release=conjur-cluster" \
+   -o jsonpath="{.items[0].metadata.name}")
+kubectl exec --namespace conjur-server  $POD_NAME  --container=conjur-oss -- env | grep CONJUR_AUTHENTICATORS
+
+echo "conjur logout" >> ~/.bash_history
+echo "conjur policy load -b root" >> ~/.bash_history
+
+exit 0

@@ -1,6 +1,6 @@
 ---
 slug: conjur-policy
-id: z78qdxclt3ba
+id: uultnzwpgskt
 type: challenge
 title: Conjur Policy
 teaser: Create Conjur Policy for Ansible to access secrets using a Host Identity.
@@ -25,7 +25,7 @@ Below is our "root" policy. It is the foundation of where the rest of our policy
 
 Copy the following and paste it on the "Code Editor" tab in a new policy file named `conjur.yml`:
 
-```
+```text
 - !policy
   id: server
 
@@ -37,7 +37,7 @@ Next, we need to create a Conjur Policy file that defines the secret variables a
 
 Copy the following and paste it on the "Code Editor" tab in a new policy file named `server.yml`:
 
-```
+```text
 - &variables
   - !variable host01/host
   - !variable host01/user
@@ -63,7 +63,7 @@ Finally, we need to create the Host Identity for Ansible to be able to authentic
 
 Copy the following and paste it on the "Code Editor" tab in a new policy file named `ansible.yml`:
 
-```
+```text
 - !layer
 
 - !host ansible-01

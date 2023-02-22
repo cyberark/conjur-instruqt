@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# This script runs when the platform check the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the check script"
+
+set -euxo pipefail
+
+if ! grep "conjur logout" ~/.bash_history; then
+    fail-message "Make sure you logout of Conjur before continuing"
+fi
+
+if ! grep "conjur policy load -b root" ~/.bash_history; then
+    fail-message "Make sure policies are loaded into Conjur before continuing"
+fi
+
+exit 0

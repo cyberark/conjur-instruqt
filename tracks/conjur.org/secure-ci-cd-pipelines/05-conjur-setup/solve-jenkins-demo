@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# This script runs when the platform solve the challenge.
+#
+# The platform determines if the script was successful using the exit code of this
+# script. If the exit code is not 0, the script fails. 
+#
+
+echo "This is the solve script"
+
+docker exec conjur conjurctl account create quick-start | tee admin_key
+docker exec conjur-cli conjur init -u http://conjur -a quick-start -i
+
+export admin_api_key="$(cat admin_key|awk '/API key for admin/ {print $NF}'|tr '  \n\r' ' '|awk '{$1=$1};1')"
+docker exec conjur-cli conjur login -i admin -p $admin_api_key
+
+echo "docker exec conjur-cli conjur init" >> ~/.bash_history
+echo "docker exec conjur-cli conjur login" >> ~/.bash_history
+
+exit 0

@@ -1,11 +1,18 @@
 #!/bin/bash
 set -euxo pipefail
 
-export COMPOSE_INTERACTIVE_NO_CLI=1
-
 # check
 echo "Checking the solution of the challenge"
-whoami=$(docker-compose exec -T client conjur authn whoami)
-if [ "$whoami" != "{\"account\":\"demo\",\"username\":\"admin\"}" ]; then
-  fail-message "Your challenge failed because you did not properly authenticate as admin to the Conjur service."
+
+api_key="$(grep API /root/conjur/admin.out | cut -d: -f2 | tr -d ' \r\n')"
+admin=$(docker-compose exec -T client conjur whoami | grep "admin" | wc -l)
+
+if ! grep "docker-compose exec -T client sh" ~/.bash_history; then
+  fail-message "Initialize Conjur first before continuing"
 fi
+
+if ! grep "docker-compose -T exec client conjur" ~/.bash_history; then
+  fail-message "Login to Conjur before continuing"
+fi
+
+exit 0

@@ -1,6 +1,6 @@
 ---
 slug: install-conjur
-id: jtmiomkcmlxz
+id: i7r2gykgcu7l
 type: challenge
 title: Install Conjur
 teaser: Install Conjur Secrets Manager and initialize the service.
@@ -31,6 +31,7 @@ We initiated Conjur Secrets Manager for you in the background. Now, let's verify
 To access the web interface, click on the "Conjur UI" tab. You should see a webpage saying "Conjur is up and running!"
 
 To create an account in Conjur, execute the following in the "Terminal" tab:
-```
+
+```bash
 docker-compose exec conjur conjurctl account create demo | tee conjur/admin.out
 ```

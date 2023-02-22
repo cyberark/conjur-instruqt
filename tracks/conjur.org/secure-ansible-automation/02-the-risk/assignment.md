@@ -1,6 +1,6 @@
 ---
 slug: the-risk
-id: nlmkx4gmupyd
+id: s5k8hrcdvpuj
 type: challenge
 title: The Risk
 teaser: Understand the risk involved in running the example playbook.
@@ -18,8 +18,8 @@ Did you notice the risk in the last challenge?
 
 Take a look again. Execute the following in the "Terminal" tab:
 
-```
-cat insecure-playbook/inventory
+```bash
+cat insecure-playbook/inventory && echo
 ```
 
 Find it?
