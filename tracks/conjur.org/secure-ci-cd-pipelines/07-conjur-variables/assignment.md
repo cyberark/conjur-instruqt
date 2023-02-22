@@ -18,7 +18,7 @@ timelimit: 300
 1. Declare the variables, privileges, and entitlements. Copy the following policy as a template:
 
 ```bash
-docker exec -it conjur-cli bash
+docker exec -it conjur-cli sh
 cat > jenkins-app.yml << EOF
 #Declare the secrets required by the application
 

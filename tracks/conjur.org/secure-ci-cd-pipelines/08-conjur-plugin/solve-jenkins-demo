@@ -8,6 +8,8 @@
 
 echo "This is the solve script"
 
+# jenkins-plugin-cli --plugins conjur-credentials
+
 echo "docker restart jenkins" >> ~/.bash_history
 
 exit 0

@@ -1,27 +1,27 @@
 #!/bin/bash
 set -euxo pipefail
 
-if ! docker ps | grep -q "conjur"; then
+if ! docker ps | grep "conjur"; then
     fail-message "Couldn't find a container running with the name conjur"
     exit 1
 fi
 
-if ! docker ps | grep -q "conjur-cli"; then
+if ! docker ps | grep "conjur-cli"; then
     fail-message "Couldn't find a container running with the name conjur-cli"
     exit 1
 fi
 
-if ! docker ps | grep -q "database"; then
+if ! docker ps | grep "database"; then
     fail-message "Couldn't find a container running with the name database"
     exit 1
 fi
 
-if ! docker ps | grep -q "jenkins"; then
+if ! docker ps | grep "jenkins"; then
     fail-message "Couldn't find a container running with the name jenkins"
     exit 1
 fi
 
-if ! docker ps | grep -q "http-auth-server"; then
+if ! docker ps | grep "http-auth-server"; then
     fail-message "Couldn't find a container running with the name http-auth-server"
     exit 1
 fi

@@ -59,7 +59,7 @@ You can also decide whether to set up global or folder-level access to Conjur, o
 
 To learn more, visit [CyberArk Conjur Doc](https://docs.conjur.org/Latest/en/Content/Integrations/jenkins-configure.htm?tocpath=Integrations%7CJenkins%7C_____2#ConfigureJenkinsConjurconnection)
 
-1. Navigate to either `Jenkins > Manage Jenkins > Configure System` in the `Jenkins Console` tab.
+1. Navigate to `Jenkins > Manage Jenkins > Configure System` in the `Jenkins Console` tab.
 
 2. Scroll down to `Conjur Appliance`
 

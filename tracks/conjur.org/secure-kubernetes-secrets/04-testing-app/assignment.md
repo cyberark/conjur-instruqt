@@ -23,7 +23,7 @@ export URL=$(kubectl describe service testapp-insecure --namespace=testapp |grep
 curl $URL/pets && echo
 ```
 
-If a `curl` error is returned, that means the application is still being started. Please wait for a couple of moments and try again. It should return [] if the application is up.
+If a `curl` error is returned, that means the application is still being started. Please wait for a couple of moments and try again. It should return `[]` if the application is up.
 
 ## Test the app
 

@@ -15,9 +15,9 @@ notes:
 
     - How will you change the secrets of various environments?
     - How do you make sure the process is secure?
-    - How do you change all the secrets when security incident happens?
-    - How do you know who or what systems has access to the secrets?
-    - Do you have the visibility on them when they access the secrets?
+    - How do you change all the secrets when a security incident happens?
+    - How do you know who or what systems have access to the secrets?
+    - Do you have visibility on them when they access the secrets?
 tabs:
 - title: Terminal
   type: terminal

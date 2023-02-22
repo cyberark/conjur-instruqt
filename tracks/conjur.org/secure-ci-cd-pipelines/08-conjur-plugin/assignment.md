@@ -19,14 +19,12 @@ tabs:
 difficulty: basic
 timelimit: 300
 ---
-1. Download the `Conjur.hpi` file from <https://github.com/cyberark/conjur-credentials-plugin/releases>
 
-2. Navigate to `Jenkins -> Manage Jenkins -> Manage Plugins -> Advanced` in the `Jenkins Console` tab.
-3. In the Deploy Plugin section, browse for the downloaded copy of `Conjur.hpi`.
+1. Navigate to `Jenkins -> Manage Jenkins -> Manage Plugins -> Available plugins` in the `Jenkins Console` tab.
 
-4. Click `Deploy`
+2. Search for the `Conjur Secrets` plugin and click `Install without restart`.
 
-5. After the upload is complete, give the following command in the `Terminal` tab:
+3. After the install is complete, run the following command in the `Terminal` tab:
 
 ```bash
 docker restart jenkins

@@ -45,7 +45,9 @@ Specifically, we will:
 
 * Deploy the application and the Secretless sidecar
 
-Prerequisites To run through this tutorial, all you need is this course!
+**Prerequisites**
+
+To run through this tutorial, all you need is this course!
 
 Let's get started!
 

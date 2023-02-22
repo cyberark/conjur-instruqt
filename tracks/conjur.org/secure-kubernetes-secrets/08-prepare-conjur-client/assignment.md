@@ -44,11 +44,11 @@ conjur init --url https://conjur.demo.com:9443  --account default --self-signed
 Trust this certificate:
 
 ```text
-yes
+y
 ```
 
 ```text
-Wrote certificate to /root/conjur-default.pem
+Wrote certificate to /root/conjur-server.pem
 Wrote configuration to /root/.conjurrc
 ```
 
