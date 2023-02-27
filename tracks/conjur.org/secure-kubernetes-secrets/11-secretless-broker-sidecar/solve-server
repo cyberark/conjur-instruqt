@@ -86,7 +86,7 @@ kubectl \
   --namespace "${APP_NAMESPACE}" \
   create configmap \
   conjur-cert \
-  --from-file=ssl-certificate="conjur-default.pem"
+  --from-file=ssl-certificate="conjur-server.pem"
 
 . ./secretless/env.sh
 

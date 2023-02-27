@@ -49,7 +49,7 @@ Let's test the setup by copying & updating the project
 
 - Credentials > Specific credentials: `ConjurSecret:jenkins-app/web_password/*Conjur*()`
 
-1. Click `Build` tab at the top
+1. Click the `Build Steps` tab in the sidebar
 
 2. Click `Add build step > Execute shell`
 
@@ -61,4 +61,4 @@ Let's test the setup by copying & updating the project
 
 3. Click Save
 
-4. Let's verify the setup by clicking Build Now
+4. Let's verify the setup by clicking "Build Now".

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker-compose exec -T client sh -c "echo yes | conjur init -u http://host01:8080 -a demo -i"
+docker-compose exec -T client sh -c "echo y | conjur init -u http://host01:8080 -a demo -i"
 
 sleep 5
 

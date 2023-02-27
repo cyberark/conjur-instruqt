@@ -38,10 +38,11 @@ echo "=== [START] git sparse checkout ==="
 
 pushd /root/instruqt || exit
     git init
-    git remote add -f origin https://github.com/scarolan/instruqt.git
+    git remote add -f origin https://github.com/cyberark/conjur-instruqt.git
     git config core.sparseCheckout true
     echo "env/conjur-k8s" >> .git/info/sparse-checkout
-    git pull origin main
+    git pull origin update-jenkins-track
+    # git pull origin main
 popd || exit
 echo "=== [FINISH] git sparse checkout ==="
 

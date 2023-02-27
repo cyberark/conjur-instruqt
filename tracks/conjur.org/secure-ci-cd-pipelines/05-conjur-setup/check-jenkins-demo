@@ -14,7 +14,7 @@ if ! grep "docker exec conjur-cli conjur init" ~/.bash_history; then
     fail-message "Make sure you initialize the Conjur client before continuing"
 fi
 
-if ! grep "docker exec conjur-cli conjur authn" ~/.bash_history; then
+if ! grep "docker exec conjur-cli conjur login" ~/.bash_history; then
     fail-message "Make sure you login to Conjur before continuing"
 fi
 

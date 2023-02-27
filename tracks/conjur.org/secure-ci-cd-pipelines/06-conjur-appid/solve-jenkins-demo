@@ -8,7 +8,7 @@
 
 echo "This is the solve script"
 
-docker exec -it conjur-cli bash
+docker exec -it conjur-cli sh
 cat > conjur.yml << EOF
 - !policy
   id: jenkins-frontend
@@ -17,7 +17,7 @@ exit
 
 docker exec conjur-cli conjur policy replace -b root -f /conjur.yml
 
-docker exec -it conjur-cli bash
+docker exec -it conjur-cli sh
 cat > jenkins-frontend.yml << EOF
 - !layer
 - !host frontend-01
@@ -32,7 +32,7 @@ docker exec conjur-cli conjur policy load -b jenkins-frontend -f /jenkins-fronte
 export frontend_api_key=$(cat frontend.out | jq -r '.created_roles."quick-start:host:jenkins-frontend/frontend-01".api_key')
 echo $frontend_api_key
 
-docker exec -it conjur-cli bash
+docker exec -it conjur-cli sh
 cat > conjur2.yml << EOF
 - !policy
   id: jenkins-app

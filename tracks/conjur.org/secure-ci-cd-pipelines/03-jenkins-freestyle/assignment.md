@@ -22,6 +22,6 @@ Now, let's take a look at a typical freestyle project.
 
 2. To view the project details, Click `Configure`.
 
-3. Click the `Build` tab and click on `Advanced` button to show the details.
+3. Click the `Build Steps` tab and click on `Advanced` button to show the details.
 
 You can see here the project is configured to connect to the target web app `http-auth-server` using the credential `theServerAccount`.

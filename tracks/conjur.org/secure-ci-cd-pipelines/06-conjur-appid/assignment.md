@@ -21,7 +21,7 @@ The following steps create Conjur policy that defines the Jenkins host and adds 
 1. Declare a policy branch for Jenkins & save it as a .yml file
 
 ```bash
-docker exec -it conjur-cli bash
+docker exec -it conjur-cli sh
 cat > conjur.yml << EOF
 - !policy
   id: jenkins-frontend
@@ -39,7 +39,7 @@ docker exec conjur-cli conjur policy replace -b root -f /conjur.yml
 4. Declare the layer and Jenkins host in another file. Copy the following policy as a template & save it.
 
 ```bash
-docker exec -it conjur-cli bash
+docker exec -it conjur-cli sh
 cat > jenkins-frontend.yml << EOF
 - !layer
 - !host frontend-01
@@ -85,7 +85,7 @@ If variables are already defined, you need only add the Jenkins layer to an exis
 7. Declare a policy branch for the application & save it
 
 ```bash
-docker exec -it conjur-cli bash
+docker exec -it conjur-cli sh
 cat > conjur2.yml << EOF
 - !policy
   id: jenkins-app
