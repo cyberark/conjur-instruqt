@@ -53,7 +53,7 @@ host/jenkins-frontend/frontend-01
   cat frontend.out
   ```
 
-3. Click OK.
+3. Click Create.
 
 You can also decide whether to set up global or folder-level access to Conjur, or a combination of both.
 

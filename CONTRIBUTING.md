@@ -40,7 +40,7 @@ To test a track, follow the following steps:
 
     - For example, `cd tracks/conjur.org/secure-ci-cd-pipelines`
 
-3. Run `instruqt track validate` to validate the format of the track, or `instruqt track test` to run a
+3. Run `instruqt track validate` to validate the format of the track, or `instruqt track test --skip-fail-check` to run a
     full test of the track with it's lifecycle scripts.
 
 ## Releases
