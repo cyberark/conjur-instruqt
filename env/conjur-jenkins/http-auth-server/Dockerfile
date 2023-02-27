@@ -1,6 +1,5 @@
-FROM python:2.7 
+FROM python:3.9.16-slim-bullseye
+COPY ./http_server_auth.py /http_server_auth.py
 
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir git+https://github.com/tianhuil/SimpleHTTPAuthServer.git@master 
-
-CMD ["python","-m","SimpleHTTPAuthServer","80","theServerAccount:NotSoSecureSecret"]
+WORKDIR /
+CMD ["python","-m","http_server_auth","-u","theServerAccount","-p","NotSoSecureSecret","80"]
