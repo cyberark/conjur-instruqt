@@ -37,7 +37,16 @@ spec:
       containers:
       - name: testapp-db
         image: postgres:9.6
-        imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          runAsUser: "10000"
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: 
+              - all
+            add: [“NET_ADMIN”]
+        imagePullPolicy: Always
         ports:
           - containerPort: 5432
         env:
@@ -51,6 +60,7 @@ spec:
           requests:
             memory: "2048Mi"
           limits:
+            cpu: "1"
             memory: "2048Mi"
 
 
