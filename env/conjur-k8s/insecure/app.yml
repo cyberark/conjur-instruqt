@@ -35,15 +35,6 @@ spec:
     spec:
       containers:
       - image: cyberark/demo-app
-        securityContext:
-          allowPrivilegeEscalation: false
-          runAsNonRoot: true
-          readOnlyRootFilesystem: false
-          runAsUser: "10000"
-          capabilities:
-            drop: 
-              - all
-            add: [“NET_ADMIN”]
         imagePullPolicy: Always
         name: testapp-insecure
         ports:
@@ -64,16 +55,7 @@ spec:
             cpu: "1"
             memory: "2048Mi"
       - name: testapp-db
-        image: postgres:9.6
-        securityContext:
-          allowPrivilegeEscalation: false
-          runAsNonRoot: true
-          readOnlyRootFilesystem: false
-          runAsUser: "10000"
-          capabilities:
-            drop: 
-              - all
-            add: [“NET_ADMIN”]
+        image: postgres:15
         imagePullPolicy: Always
         ports:
           - containerPort: 5432

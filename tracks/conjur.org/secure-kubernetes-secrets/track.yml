@@ -20,15 +20,22 @@ description: |-
   [https://www.conjur.org](https://www.conjur.org)
 icon: https://raw.githubusercontent.com/infamousjoeg/instruqt/main/assets/logos/CyberArkCommons_Vert_4C%40256x.png
 tags:
-- cyberark
 - secretless
-- secrets-management
-- open-source
 - kubernetes
+- secrets-management
+- cyberark
+- open-source
 owner: cyberark
 developers:
 - joe@joe-garcia.com
-- sean@instruqt.com
 - shlomo.heigh@cyberark.com
 maintenance: true
-checksum: "5107602127621596038"
+idle_timeout: 600
+timelimit: 3600
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "13179353842497078369"

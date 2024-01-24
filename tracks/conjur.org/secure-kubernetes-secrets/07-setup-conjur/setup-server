@@ -8,6 +8,7 @@
 
 echo "This is the setup script"
 
+snap refresh
 snap install docker
 
 exit 0
