@@ -22,7 +22,18 @@ cat <<EOF > docker-compose.yml
 version: '3'
 services:
   database:
-    image: postgres:9.3
+    image: postgres:15
+    environment:
+      # To avoid the following error:
+      #
+      #   Error: Database is uninitialized and superuser password is not
+      #   specified.  You must specify POSTGRES_PASSWORD for the superuser. Use
+      #   "-e POSTGRES_PASSWORD=password" to set it in "docker run".
+      #
+      #   You may also use POSTGRES_HOST_AUTH_METHOD=trust to allow all
+      #   connections without a password. This is *not* recommended. See
+      #   PostgreSQL documentation about "trust"
+      POSTGRES_HOST_AUTH_METHOD: trust
 
   conjur:
     image: cyberark/conjur
@@ -49,7 +60,7 @@ docker-compose pull
 docker-compose run --no-deps --rm conjur data-key generate > data_key
 generated_data_key="$(<data_key)"
 echo "export CONJUR_DATA_KEY=${generated_data_key}" >> /root/.bashrc
-docker pull postgres:9.6
+docker pull postgres:15
 echo "=== [FINISH] Conjur initial setup ==="
 
 # Add service01 account
